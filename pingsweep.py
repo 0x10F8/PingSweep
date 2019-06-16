@@ -15,7 +15,6 @@ def is_host_up_icmp(host, timeout=DEFAULT_TIMEOUT):
         return False, host
     return True, host
 
-
 network_address = sys.argv[1]
 na_oct = network_address.split('.')
 working_address = "%s.%s.%s" % (na_oct[0], na_oct[1], na_oct[2])
@@ -29,4 +28,5 @@ for future in thread_results:
     results.append(future.result())
 thread_pool.shutdown()
 
+# 
 [print("[+] IP Address %s is up!" % ip) for result,ip in results if result]
