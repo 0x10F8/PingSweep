@@ -3,6 +3,10 @@
 # Currently only ping sweeps a /24 network
 # Takes the network address as the argument (e.g. 192.168.0.0)
 
+if [ $# -lt 1 ]; then
+    echo "usage $0 [NETWORK ADDRESS]"
+    exit 1
+fi
 
 NETWORK_ADDR="$1"
 WORKING_ADDR=$(echo $NETWORK_ADDR | cut -d'.' -f1 -f2 -f3)
